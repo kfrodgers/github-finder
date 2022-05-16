@@ -5,7 +5,7 @@ import UserItem from "./UserItems"
 import Spinner from "../layout/Spinner";
 
 
-const Users = ({ users, loading}) => {
+const Users = ({ users, loading }) => {
 
     if (loading) {
         return <Spinner />
