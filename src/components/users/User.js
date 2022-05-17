@@ -6,15 +6,17 @@ import { useParams } from 'react-router-dom'
 import Spinner from "../layout/Spinner";
 import Repos from "../repos/Repos";
 
-const User = ({ getUser, getUserRepos, user, repos, loading }) => {
+const User = (props) => {
 
+    const { getUser, getUserRepos, user, repos, loading } = props;
     const { login } = useParams();
     useEffect(() => {
-        if (!loading && user.login !== login) {
+        if (login) {
             getUser(login);
             getUserRepos(login);
         }
-    });
+        // eslint-disable-next-line
+    }, []);
 
     const { name, avatar_url, location, bio,
         blog, html_url, followers, following, company,
